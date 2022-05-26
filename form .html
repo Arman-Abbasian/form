@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/build/tailwind.css" />
+    <title>Form</title>
+</head>
+<body>
+    <div class="w-screen h-screen bg-gradient-to-r from-red-500 to-blue-500 flex justify-center items-center">
+        <div class="max-w-xl flex flex-col  bg-white bg-opacity-30 w-full rounded-md">
+            <div class="p-4">
+                <ul class="flex justify-start gap-3 cursor-pointer transition duration-300" x-data="{tab:1}">
+                    <li x-on:click="tab=1" class="p-2 text-lg font-bold"  x-bind:class="{ 'border-b-2 border-blue-800': tab===1 }">Login</li>
+                    <li x-on:click="tab=2" class="p-2 text-lg font-bold" x-bind:class="{ 'border-b-2 border-blue-800': tab===2 }">Register</li>
+                </ul>
+            </div>
+            <div class="flex flex-col justify-center items-center gap-4">
+                <p>Log In With</p>
+                <div class="flex justify-center items-center gap-4">
+                    <!-- twitter -->
+                    <div x-on:click="openTwitter = true"
+                        class="flex items-center justify-center w-16 h-16 text-white transition bg-blue-400 rounded-full cursor-pointer hover:bg-blue-100 hover:text-blue-400">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 15 15" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M14.9773 1.46694C14.964 1.26637 14.8319 1.09326 14.642 1.02752C14.452 0.961775 14.2412 1.01618 14.1067 1.16562C13.7611 1.54977 13.3243 1.81009 12.881 1.92878C12.2644 1.35315 11.436 1.00002 10.5256 1.00002C8.57181 1.00002 6.98923 2.58615 6.98923 4.54112V4.98092C3.99799 4.74976 2.39838 2.47748 1.96675 1.3247C1.89698 1.13836 1.72337 1.01112 1.52468 1.00071C1.32598 0.990288 1.14002 1.09867 1.05114 1.27669C0.00441813 3.37338 -0.156858 5.40696 0.603899 7.13863C1.27032 8.65556 2.61055 9.86392 4.51008 10.6645C3.64679 11.2763 2.19379 12 0.500039 12C0.279771 12 0.0854497 12.1442 0.0215445 12.355C-0.0423608 12.5658 0.0392055 12.7935 0.222392 12.9158C1.8465 14.0003 3.54865 14.0001 5.13184 14L5.1803 14C10.041 14 13.98 10.0538 13.98 5.18751V4.70922C14.3434 4.33984 14.6264 3.96173 14.7998 3.4729C14.9932 2.92746 15.0322 2.295 14.9773 1.46694Z"
+                                fill="current" />
+                        </svg>
+                    </div>
+                    <!-- facebook -->
+                    <div class="flex items-center justify-center w-16 h-16 text-white bg-blue-700 rounded-full">
+                        <svg class="w-8 h-8 fill-current" viewBox="0 0 15 15" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 7.5C0 3.35786 3.35786 0 7.5 0C11.6421 0 15 3.35786 15 7.5C15 11.4741 11.909 14.7263 8 14.9836V9H10V8H8V6.5C8 5.67157 8.67157 5 9.5 5H10V4H9.5C8.11929 4 7 5.11929 7 6.5V8H5V9H7V14.9836C3.09098 14.7263 0 11.4741 0 7.5Z" fill="current" />
+                        </svg>
+                    </div>
+                    <!-- g-mail -->
+                    <div class="flex items-center justify-center w-16 h-16 text-white bg-red-500 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                          </svg>
+                </div>
+            </div>
+                <form class="w-full p-4 flex flex-col gap-8">
+                    <div class="flex flex-col justify-start w-full">
+                        <label for="userName" class="mb-2 font-bold text-sm">user name</label>
+                        <div class="relative w-full">
+                            <input type="text" id="userName" class="bg-transparent shadow-xl shadow-slate-900 rounded-full py-2 px-10 focus:outline-none w-full" />
+                            <div class="absolute top-2 left-3 text-blue-900">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                  </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-start w-full">
+                        <label for="password" class="mb-2 font-bold text-sm">password</label>
+                        <div class="relative w-full">
+                            <input type="text" id="password" class="bg-transparent shadow-xl shadow-slate-600 rounded-full py-2 px-10 focus:outline-none w-full" />
+                            <div class="absolute top-2 left-3 text-blue-900">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                  </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-start w-full">
+                        <button class="bg-blue-600 rounded-full p-2 mt-10 text-white text-lg">Log In</button>
+                    </div>
+                </form>
+
+        </div>
+    </div>
+
+
+    <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+</body>
+</html>
